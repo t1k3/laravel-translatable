@@ -3,6 +3,7 @@
 namespace T1k3\LaravelTranslatable\Tests\Fixtures\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use T1k3\LaravelTranslatable\Models\Traits\Translatable;
 
 
 /**
@@ -11,5 +12,17 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Post extends Model
 {
+    use Translatable;
 
+    protected $fillable = [
+        'title',
+        'lead',
+        'body',
+    ];
+
+    protected $translatable = [
+        'title',
+        'lead',
+        'body',
+    ];
 }
