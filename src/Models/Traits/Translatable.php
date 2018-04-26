@@ -37,9 +37,9 @@ trait Translatable
     /**
      * @param $attribute
      * @param $language
-     * @return null
+     * @return null|string
      */
-    public function translate($attribute, $language)
+    public function translate($attribute, $language): ?string
     {
         $translatable = $this->getTranslatable();
         $supportedLocales = $this->getSupportedLocales();
@@ -60,7 +60,7 @@ trait Translatable
      * @param string|null $key
      * @return array
      */
-    public function scopePluckWithTranslate($query, string $column, string $key = null)
+    public function scopePluckWithTranslate($query, string $column, string $key = null): array
     {
         $array = [];
         $items = $query->get();
@@ -77,7 +77,7 @@ trait Translatable
      * @param $key
      * @return string
      */
-    public function getAttributeValue($key)
+    public function getAttributeValue($key): string
     {
         $value = parent::getAttributeValue($key);
         $translatable = $this->getTranslatable();
